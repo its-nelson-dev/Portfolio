@@ -1,90 +1,127 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Projects.css";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import { projects } from "../../details";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
+import { getStackLabels, getProjectLinks } from "../../utils/projectMeta";
+import ProjectPlaceholder from "./ProjectPlaceholder";
+import ProjectSlideshow from "./ProjectSlideshow";
+
+function ProjectDetailsCard({ project, showFeaturedLabel }) {
+  const { liveUrl, codeUrl } = getProjectLinks(project);
+  const stackLabels = getStackLabels(project.imgs);
+
+  return (
+    <div className="spotlight">
+      {project.gallery?.length ? (
+        <ProjectSlideshow
+          images={project.gallery}
+          alt={project.title}
+          variant="spotlight"
+        />
+      ) : (
+        <ProjectPlaceholder
+          variant="spotlight"
+          image={project.image}
+          alt={project.title}
+        />
+      )}
+      <div className="spotlightBody">
+        {showFeaturedLabel && (
+          <span className="spotlightLabel">
+            FEATURED{project.year ? ` · ${project.year}` : ""}
+          </span>
+        )}
+        <h2 className="spotlightTitle">{project.title}</h2>
+        <p className="spotlightDescription">{project.description}</p>
+        <div className="stackTags">
+          {stackLabels.map((label) => (
+            <span className="stackTag" key={label}>
+              {label}
+            </span>
+          ))}
+        </div>
+        <div className="spotlightLinks">
+          {liveUrl && (
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+              Try it here ↗
+            </a>
+          )}
+          {liveUrl && codeUrl && <span className="linkDivider">·</span>}
+          {codeUrl && (
+            <a href={codeUrl} target="_blank" rel="noopener noreferrer">
+              Code ↗
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Projects() {
+  const location = useLocation();
+  const [projectList, setProjectList] = useState(projects);
+  const spotlightProject = projectList[0];
+
+  useEffect(() => {
+    if (location.hash !== "#spotlight") return;
+    document
+      .getElementById("spotlight")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [location.hash]);
+
+  const promoteProject = (id) => {
+    setProjectList((current) => {
+      const selected = current.find((project) => project.id === id);
+      const rest = current.filter((project) => project.id !== id);
+      return [selected, ...rest];
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <>
-      <motion.div
-        initial={{ x: "-100%" }}
-        animate={{ x: "100%" }}
-        transition={{ duration: 2, ease: [0.2, 1, 0.2, 1] }}
-        className="slide"
-      />
+    <motion.div
+      className="projectsPage"
+      initial={{ opacity: 0, x: 12 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.18 }}
+    >
+      <header className="projectsHeader">
+        <h1 className="projectsHeading">Projects</h1>
+        <p className="projectsSubhead">{projectList.length} shipped.</p>
+      </header>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <div className="title">PROJECTS</div>
+      <div className="spotlightWrap" id="spotlight">
+        <ProjectDetailsCard project={spotlightProject} showFeaturedLabel />
+      </div>
 
-        {/* --------------------------------------------------------------------------EXPERIENCES */}
-        <VerticalTimeline>
-          {projects.map((project) => (
-            <VerticalTimelineElement
-              key={project.id}
-              className="vertical-timeline-element--work"
-              contentStyle={{
-                background: "black",
-                color: "  #757575",
-                boxShadow: "0 0 10px 0 black",
-              }}
-              iconStyle={{ background: "white" }}
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="32"
-                  width="32"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z" />
-                </svg>
-              }
-              contentArrowStyle={{ borderRight: "7px solid  #fff" }}
-              date={
-                <span
-                  style={{
-                    color: "white",
-                    padding: "10px",
-                    backgroundColor: "black",
-                    borderRadius: "15px",
-                    boxShadow: "0 0 10px 0 #757575",
-                  }}
-                >
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.link}
-                  </a>
-                </span>
-              }
-            >
-              <h1 className="vertical-timeline-element-title">
-                {project.title}
-              </h1>
+      <hr className="rule" />
 
-              <h3 className="vertical-timeline-element-subtitle">
-                {project.description}
-              </h3>
+      <div className="projectsGrid">
+        {projectList.map((project) => (
+          <button
+            type="button"
+            className="gridItem"
+            key={project.id}
+            onClick={() => promoteProject(project.id)}
+          >
+            <ProjectPlaceholder
+              variant="grid"
+              image={project.image}
+              alt={project.title}
+            />
+            <h3 className="gridTitle">{project.title}</h3>
+          </button>
+        ))}
+      </div>
 
-              <div className="stacks">
-                {project.imgs.map((img) => (
-                  <img src={img} alt="stacks" key={img} />
-                ))}
-              </div>
-            </VerticalTimelineElement>
-          ))}
-        </VerticalTimeline>
-      </motion.div>
-    </>
+      <div className="mobileProjectList">
+        {projectList.map((project) => (
+          <ProjectDetailsCard key={project.id} project={project} />
+        ))}
+      </div>
+    </motion.div>
   );
 }
 

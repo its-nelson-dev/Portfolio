@@ -1,5 +1,5 @@
 {
-  "homepage": "https://nlsncstr18.github.io/PortfolioV2",
+  "homepage": "https://nlsncstr18.github.io/Portfolio",
   "name": "my-portfolio",
   "private": true,
   "version": "0.0.0",
@@ -24,8 +24,7 @@
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
-    "react-type-animation": "^3.2.0",
-    "react-vertical-timeline-component": "^3.6.0"
+    "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

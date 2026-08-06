@@ -1,3 +1,26 @@
+:root {
+  --flat-bg: #f3f2f2;
+  --flat-surface: #eae8e5;
+  --flat-text: #201e1d;
+  --flat-accent: #ec3013;
+  --flat-line: #201e1d;
+  --flat-muted: #5c5955;
+  --flat-muted-strong: #4a4744;
+  --flat-track: #e2e0dc;
+  --font-archivo: "Archivo", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --flat-bg: #1c1a17;
+  --flat-surface: #262320;
+  --flat-text: #f3f2f0;
+  --flat-accent: #ec3013;
+  --flat-line: #f3f2f0;
+  --flat-muted: #8f8a83;
+  --flat-muted-strong: #d6d1ca;
+  --flat-track: #35322d;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -1,5 +1,13 @@
 export const experiences = [
   {
+    id: 4,
+    jobRole: "Web Developer",
+    description:
+      "Building and maintaining web applications, from front-end interfaces to back-end integration, for company products.",
+    companyName: "Htech Corporation",
+    date: "March 2024 - Present",
+  },
+  {
     id: 1,
     jobRole: "Junior Frond-end Developer",
     description:
@@ -42,79 +50,62 @@ export const education = [
 
 export const projects = [
   {
-    id: 1,
-    title: "Transconnect",
+    id: 3,
+    title: "Intercity",
+    year: 2026,
     description:
-      "Assisting Commuters and Transport Workers with Real-Time Public Transport Information and Assistance",
-    link: "https://nlsncstr18.github.io/TransConnect",
-
-    imgs: [
-      "/PortfolioV2/html.png",
-      "/PortfolioV2/css.png",
-      "/PortfolioV2/javascript.png",
-      "/PortfolioV2/react.png",
-      "/PortfolioV2/nodejs.png",
-      "/PortfolioV2/mongodb.png",
+      "A bookkeeping platform built for freelance accountants juggling multiple clients at once. Each client gets their own chart of accounts, journal entries, and transaction history, with year-to-date reports — trial balance, income statement, balance sheet — generated automatically so books stay clean and audit-ready without spreadsheet gymnastics.",
+    image: "/Portfolio/intercity.png",
+    gallery: [
+      "/Portfolio/intercity.png",
+      "/Portfolio/intercity-1.png",
+      "/Portfolio/intercity-2.png",
+      "/Portfolio/intercity-3.png",
     ],
+
+    imgs: ["/Portfolio/laravel.png", "/Portfolio/mysql.png"],
   },
   {
     id: 2,
-    title: "Library Management System",
+    title: "Math Stack",
+    year: 2026,
     description:
-      "A website that allows users to borrow and return books online, and also allows the librarian to manage the books and the users of the library.",
-    link: "https://github.com/nlsncstr18/Road-To-Full-Stack/tree/laravel",
+      "A free browser game where blocks stack Tetris-style based on how fast and accurately you solve math problems. Play random opponents online, challenge friends with a room code, or practice offline against bots. It won't solve every problem and it might not be the most addictive game out there, but the goal is simple: make learning math a little more fun, one free educational game at a time.",
+    link: "https://mathstack.infinityfree.io/",
+    image: "/Portfolio/mathstack.png",
+    gallery: [
+      "/Portfolio/mathstack-1.png",
+      "/Portfolio/mathstack-2.png",
+      "/Portfolio/mathstack-3.png",
+      "/Portfolio/mathstack-4.png",
+    ],
 
     imgs: [
-      " /PortfolioV2/html.png",
-      "/PortfolioV2/css.png",
-      " /PortfolioV2/php.png",
-      " /PortfolioV2/laravel.png",
-      " /PortfolioV2/mysql.png",
+      "/Portfolio/php.png",
+      "/Portfolio/css.png",
+      "/Portfolio/javascript.png",
     ],
   },
   {
-    id: 3,
-    title: "Shower Thoughts",
+    id: 1,
+    title: "Transconnect",
+    year: 2023,
     description:
-      "A simple website that allows users to post their thoughts anonymously",
-    link: "https://shower-thoughts-app.onrender.com",
-
-    imgs: [
-      "/PortfolioV2/html.png",
-      "/PortfolioV2/css.png",
-      "/PortfolioV2/javascript.png",
-      "/PortfolioV2/react.png",
-      "/PortfolioV2/nodejs.png",
-      "/PortfolioV2/mongodb.png",
+      "Assisting Commuters and Transport Workers with Real-Time Public Transport Information and Assistance",
+    link: "https://nlsncstr18.github.io/TransConnect",
+    image: "/Portfolio/transconnect.png",
+    gallery: [
+      "/Portfolio/transconnect-1.png",
+      "/Portfolio/transconnect-2.png",
     ],
-  },
-  {
-    id: 4,
-    title: "Pc Store Warfare",
-    description:
-      "A computer store website that allows users to buy computer parts and accessories online",
-    link: "https://nlsncstr18.github.io/Gaming-Warfare",
 
     imgs: [
-      "/PortfolioV2/html.png",
-      "/PortfolioV2/css.png",
-      "/PortfolioV2/javascript.png",
-      "/PortfolioV2/react.png",
-      "/PortfolioV2/nodejs.png",
-      "/PortfolioV2/mongodb.png",
-    ],
-  },
-  {
-    id: 5,
-    title: "Previous Portfolio",
-    description: "My previous portfolio that showcases my projects and skills",
-    link: "https://nlsncstr18.github.io/Portfolio/",
-
-    imgs: [
-      "/PortfolioV2/html.png",
-      "/PortfolioV2/css.png",
-      "/PortfolioV2/javascript.png",
-      "/PortfolioV2/react.png",
+      "/Portfolio/html.png",
+      "/Portfolio/css.png",
+      "/Portfolio/javascript.png",
+      "/Portfolio/react.png",
+      "/Portfolio/nodejs.png",
+      "/Portfolio/mongodb.png",
     ],
   },
 ];
