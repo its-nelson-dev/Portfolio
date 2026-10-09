@@ -1,0 +1,132 @@
+.blogPage {
+  background: var(--flat-bg);
+  color: var(--flat-text);
+  font-family: var(--font-archivo);
+  min-height: 100vh;
+  padding: 80px 60px 80px;
+  box-sizing: border-box;
+}
+
+.blogHeader {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.blogHeading {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.blogSubhead {
+  font-size: 1.1em;
+  color: var(--flat-muted);
+  margin: 8px 0 0;
+}
+
+.blogContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.postContainer {
+  gap: 18px;
+}
+
+.blogState {
+  color: var(--flat-muted);
+  font-size: 1em;
+}
+
+.blogItem {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 0;
+  border-bottom: 2px solid var(--flat-line);
+  transition: padding-left 0.2s ease, border-color 0.2s ease;
+}
+
+.blogItem:first-of-type {
+  border-top: 2px solid var(--flat-line);
+}
+
+.blogItem:hover {
+  padding-left: 12px;
+  border-color: var(--flat-accent);
+}
+
+.blogDate {
+  color: var(--flat-muted);
+  font-size: 0.75em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.blogItemTitle {
+  font-size: 1.35em;
+  font-weight: 700;
+  margin: 6px 0 0;
+  transition: color 0.2s ease;
+}
+
+.blogItem:hover .blogItemTitle {
+  color: var(--flat-accent);
+}
+
+.blogExcerpt {
+  margin: 8px 0 0;
+  color: var(--flat-muted-strong);
+  line-height: 1.55;
+  font-size: 0.98em;
+}
+
+/* Single post */
+.blogBack {
+  align-self: flex-start;
+  color: var(--flat-muted);
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.blogBack:hover {
+  color: var(--flat-accent);
+}
+
+.blogArticle {
+  border-top: 2px solid var(--flat-line);
+  padding-top: 24px;
+}
+
+.blogPostTitle {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 6px 0 18px;
+}
+
+.blogParagraph {
+  color: var(--flat-muted-strong);
+  line-height: 1.7;
+  font-size: 1.05em;
+  margin: 0 0 16px;
+}
+
+.blogSpacer {
+  height: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .blogPage {
+    padding: 80px 24px 60px;
+  }
+
+  .blogPostTitle {
+    font-size: 1.6em;
+  }
+}

@@ -1,0 +1,40 @@
+name: Blog from Telegram
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-from-telegram
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync Telegram messages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Sync new messages into posts.json
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 scripts/telegram_to_blog.py
+
+      - name: Commit new posts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/posts.json .blog/telegram-state.json
+          if git diff --cached --quiet; then
+            echo "No new posts to commit."
+          else
+            git commit -m "chore: add blog posts from Telegram"
+            git push
+          fi

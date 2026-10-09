@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Projects from "../pages/Projects/Projects";
 import About from "../pages/About Me/About";
 import Services from "../pages/Services/Services";
+import Blog from "../pages/Blog/Blog";
+import BlogPost from "../pages/Blog/BlogPost";
 import { AnimatePresence } from "framer-motion";
 import Nav from "./Nav";
 function AnimatedRoutes() {
@@ -22,6 +24,8 @@ function AnimatedRoutes() {
         <Route path="/Projects/" element={<Projects />} />
         <Route path="/About/" element={<About />} />
         <Route path="/Services/" element={<Services />} />
+        <Route path="/Blogs/" element={<Blog />} />
+        <Route path="/Blogs/:slug" element={<BlogPost />} />
       </Routes>
     </AnimatePresence>
   );
