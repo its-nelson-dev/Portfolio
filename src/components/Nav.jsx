@@ -33,12 +33,6 @@ function Nav() {
           SERVICES
         </NavLink>
         <NavLink
-          to="/Portfolio/Blogs"
-          className={({ isActive }) => (isActive ? "navLink active" : "navLink")}
-        >
-          BLOGS
-        </NavLink>
-        <NavLink
           to="/Portfolio/About"
           className={({ isActive }) => (isActive ? "navLink active" : "navLink")}
         >
