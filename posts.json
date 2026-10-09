@@ -1,32 +1,3 @@
 {
-  "posts": [
-    {
-      "id": "1814425004-3",
-      "slug": "the-problem-with-people-is-that-they-lack-purpose",
-      "title": "THE PROBLEM WITH PEOPLE IS THAT THEY LACK PURPOSE",
-      "date": "2026-10-09T03:12:32+00:00",
-      "body": ""
-    },
-    {
-      "id": "1814425004-2",
-      "slug": "hey",
-      "title": "hey",
-      "date": "2026-10-09T03:09:30+00:00",
-      "body": ""
-    },
-    {
-      "id": "1814425004-1",
-      "slug": "start",
-      "title": "/start",
-      "date": "2026-10-09T03:06:04+00:00",
-      "body": ""
-    },
-    {
-      "id": "seed-welcome",
-      "slug": "welcome-to-my-blog",
-      "title": "Welcome to my blog",
-      "date": "2026-10-09T00:00:00Z",
-      "body": "This blog is powered by Telegram. I send a message to my bot and it shows up here as a post.\n\nThe first line of the message becomes the title, and everything after it becomes the body. New posts are synced automatically and published to this page."
-    }
-  ]
+  "posts": []
 }
